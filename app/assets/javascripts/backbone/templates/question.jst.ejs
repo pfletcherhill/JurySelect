@@ -1,0 +1,11 @@
+<h1>Enter Juror Numbers</h1>
+<div class="question-text"><span>Question <%= question.abbreviation %>:</span> <%= question.text %></div>
+<form id="new-juror">
+  <input type="text" name="number" id="number" placeholder="####"></input>
+  <input type="submit" value="Add Juror"></input>
+</form>
+<div id="jurors"><span>Jurors:</span></div>
+<div class="question-footer">
+  <button id="done" data-id="<%= question.id %>">Done</button>
+  <button id="next-question" data-id="<%= question.id %>">Next Question</button>
+</div>

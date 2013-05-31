@@ -1,0 +1,7 @@
+#container
+
+:javascript
+  $(function() {
+    window.router = new JurySelection.Router({questions: #{@questions.to_json}, currentUser: #{current_user.to_json}});
+    Backbone.history.start();
+  });

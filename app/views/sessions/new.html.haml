@@ -1,0 +1,7 @@
+#login
+  %h4 Login to JurySelect
+  = form_tag sessions_path do
+    #notice=notice
+    = text_field_tag :email, params[:email], :placeholder => 'Email Address'
+    = password_field_tag :password, params[:password], :placeholder => 'Password'
+    = submit_tag "Authenticate Yourself", :class => 'login'

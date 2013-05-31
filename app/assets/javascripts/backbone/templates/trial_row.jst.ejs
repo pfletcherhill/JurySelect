@@ -1,0 +1,10 @@
+<tr data-id="<%= id %>">
+  <td><%= moment(created_at).format("dddd, MMMM Do YYYY") %></td>
+  <td><%= questions_count %></td>
+  <td><%= jurors_count %></td>
+  <td class="buttons">
+    <a href="#trials/<%= id %>/setup">Show</a>
+    <a id="review-trial" href='#trials/<%= id %>/review'>Review</a>
+    <button id="delete-trial" data-id='<%= id %>'>Delete</button>
+  </td>
+</tr>

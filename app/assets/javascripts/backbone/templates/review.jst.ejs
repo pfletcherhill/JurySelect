@@ -1,0 +1,22 @@
+<h1>Review jurors</h1>
+<table class="jurors">
+<% if(jurors.length == 0) { %>
+  <tr><td class="message">You have not reported any jurors for this trial...</td></tr>
+<% } else { %>
+  <% for(i = 0; i < jurors.length; i++) { %>
+    <% juror = jurors[i]; %>
+    <tr class="juror">
+      <td class="juror-number">Juror <%= juror.number %></td>
+      <td class="juror-questions">
+        <% questions = jurors[i].questions; %>
+        <% for(j = 0; j < questions.length; j++ ) { %>
+          <span class="question"><%= questions[j].abbreviation %></span>
+        <% } %>
+      </td>
+      <td class="juror-notes">
+        <textarea class="notes" data-id="<%= juror.id %>" placeholder="Notes on juror <%= juror.number %>"><%= juror.notes %></textarea>
+      </td>
+    </tr>
+  <% } %>
+<% } %>
+</table>

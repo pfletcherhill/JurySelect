@@ -1,0 +1,400 @@
+// Mixins
+@import "mixins";
+
+// Global variables
+$width: 960px;
+$min-width: 550px;
+$header-height: 50px;
+$yellow: rgba(255,203,5,1);
+$blue: rgba(31,188,255,1);
+$dark-blue: blue;
+$green: #00FF00;
+
+// General styles
+body {
+  padding: 0;
+  margin: 0;
+  background: #fafafa;
+  @include HN-Regular;
+}
+
+button, a {
+  cursor: pointer;
+  @include transition(0.2s);
+}
+
+input, textarea {
+  outline: none;
+}
+
+textarea {
+  resize: none;
+}
+
+th {
+  text-align: left;
+}
+
+.wrapper {
+  max-width: $width;
+  min-width: $min-width;
+  width: 90%;
+  margin: auto;
+}
+
+// Header
+.header {
+  height: $header-height;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background: white;
+  border-bottom: 1px solid #dadada;
+  @include shadow(0 0 1px 1px #eee);
+  a {
+    $link-height: 30px;
+    @include HN-Bold;
+    @include calc(margin, "(#{$header-height} - #{$link-height} - 2px)/2");
+    @include transition(0.2s);
+    border: 1px solid #dadada;
+    border-radius: 7px;
+    line-height: $link-height;
+    float: left;
+    margin-right: 0;
+    padding: 0 20px;
+    text-decoration: none;
+    color: $blue;
+    &:hover {
+      background: #fafafa;
+      color: $blue;
+      border: 1px solid $blue;
+    }
+  }
+  .right {
+    float: right;
+  }
+  .logo {
+    border: 1px solid $yellow;
+    color: $yellow;
+    margin-left: 0;
+    &:hover {
+      color: $yellow;
+      border: 1px solid $yellow;
+    }
+  }
+}
+
+// Container
+#container {
+  position: relative;
+  @include calc(max-width, "#{$width} - 40px");
+  @include calc(min-width, "#{$min-width} - 40px");
+  @include calc(width, "90% - 40px");
+  margin: auto;
+  @include calc(margin-top, "#{$header-height} + 15px");
+  background: white;
+  border: 1px solid #dadada;
+  padding: 20px;
+  min-height: 200px;
+}
+.inline-container {
+  width: 100%;
+  td {
+    vertical-align: top;
+  }
+  td.table {
+    width: 60%;
+  }
+  td.form {
+    padding-left: 10px;
+  }
+}
+td a, button {
+  background: none;
+  padding: 5px 10px;
+  border-radius: 5px;
+  border: 1px solid #dadada;
+  color: $blue;
+  font-size: 15px;
+  line-height: 15px;
+  display: inline-block;
+  margin: 0;
+  text-decoration: none;
+  &:hover {
+    border: 1px solid $blue;
+  }
+}
+td {
+  font-size: 14px;
+}
+
+// Questions
+.cover {
+  background: rgba(255, 255, 255, 0.7);
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: none;
+  &.open {
+    display: block;
+  }
+}
+.popover {
+  background: white;
+  border-radius: 10px;
+  border: 1px solid #dadada;
+  @include shadow(1px 1px 5px 5px #eee);
+  position: fixed;
+  width: 50%;
+  @include calc(max-width, "#{$width}/2");
+  @include calc(min-width, "#{$min-width}/2");
+  padding: 20px;
+  top: 10%;
+  left: 25%;
+}
+table.questions {
+  width: 100%;
+  border-collapse: collapse;
+  tr {
+    border-bottom: 1px solid #dadada;
+  }
+  td {
+    vertical-align: top;
+    padding: 10px 5px;
+  }
+  .text {
+    @include HN-Light;
+    line-height: 17px;
+    font-size: 13px;
+  }
+  th {
+    text-align: left;
+    padding-bottom: 3px;
+  }
+}
+h2 {
+  margin: 15px 0;
+  line-height: 30px;
+  color: $blue;
+  span {
+    float: right;
+    line-height: 30px;
+    cursor: pointer;
+    font-size: 12px;
+    border: 1px solid #dadada;
+    border-radius: 10px;
+    padding: 0 10px;
+    color: #aaa;
+    @include HN-Regular;
+    @include transition(0.2s);
+    &:hover {
+      border: 1px solid black;
+      color: black;
+    }
+  }
+}
+form {
+  input, textarea {
+    @include calc(width, "100% - 20px");
+    padding: 15px 10px;
+    border: 1px solid #ddd;
+    outline: none;
+    font-size: 14px;
+    margin-bottom: 8px;
+  }
+  textarea {
+    resize: none;
+    height: 100px;
+  }
+  #submit {
+    width: 100%;
+    border: 1px solid $blue;
+    cursor: pointer;
+    background: none;
+    color: $blue;
+    @include HN-Bold;
+    @include transition(0.2s);
+    &:hover, :focus {
+      background: $blue;
+      color: white;
+    }
+  }
+}
+
+// Trials
+h1 {
+  margin: 0;
+  font-size: 30px;
+  line-height: 30px;
+  padding-bottom: 10px;
+  color: $blue;
+  border-bottom: 1px solid #dadada;
+  margin-bottom: 15px;
+  button, a {
+    float: right;
+    line-height: 26px;
+    border: 1px solid $blue;
+    background: none;
+    padding: 0 10px;
+    color: $blue;
+    border-radius: 5px;
+    font-size: 15px;
+    text-decoration: none;
+    &:hover {
+      background: $blue;
+      color: white;
+    }
+  }
+}
+
+table.trials {
+  width: 100%;
+  border-collapse: collapse;
+  tr {
+    border-bottom: 1px solid #dadada;
+  }
+  th {
+    text-align: left;
+  }
+  td {
+    padding: 10px 5px;
+    vertical-align: top;
+  }
+}
+
+td.buttons {
+  text-align: right;
+  min-width: 230px;
+}
+
+table#questions {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.form {
+  border-bottom: 1px solid #dadada;
+  padding-bottom: 20px;
+}
+
+.question-text {
+  @include HN-Light;
+  span {
+    @include HN-Bold;
+  }
+  margin-bottom: 15px;
+}
+
+#jurors {
+  margin-top: 10px;
+  margin-bottom: 20px;
+  span {
+    @include HN-Bold;
+    margin-right: 8px;
+  }
+  .juror {
+    display: inline-block;
+    border: 1px solid $blue;
+    margin: 0 2px;
+    padding: 5px;
+    border-radius: 5px;
+  }
+}
+
+form#new-juror {
+  input {
+    width: 30%;
+  }
+  input[type='submit'] {
+    background: none;
+    border-radius: 10px;
+    border: 1px solid #dadada;
+    color: $blue;
+    width: 100px;
+    cursor: pointer;
+    @include HN-Bold;
+    @include transition(0.2s);
+    &:hover, :focus {
+      border: 1px solid $blue;
+    }
+  }
+}
+
+.question-footer {
+  border-top: 1px solid #dadada;
+  padding-top: 15px;
+}
+
+// Review
+table.jurors {
+  width: 100%;
+  border-collapse: collapse;
+  .juror {
+    border-bottom: 1px solid #dadada;
+    margin-bottom: 20px;
+    .juror-number {
+      @include HN-Bold;
+      font-size: 20px;
+    }
+  }
+  .juror-questions .question {
+    border-radius: 5px;
+    border: 1px solid $blue;
+    padding: 5px 10px;
+  }
+  .juror-notes {
+    width: 200px;
+    textarea {
+      width: 198px;
+      border: 1px solid #dadada;
+      &.highlighted {
+        border: 1px solid $green;
+      }
+    }
+  }
+  .message {
+    text-align: center;
+    color: #dadada;
+    font-size: 25px;
+    @include HN-Light;
+    line-height: 100px;
+  }
+}
+
+// Login
+#login {
+  margin: auto;
+  @include calc(width, "#{$min-width} - 60px");
+  @include calc(margin-top, "#{$header-height} + 15px");
+  padding: 30px;
+  input {
+    @include calc(width, "100% - 22px");
+    font-size: 20px;
+    @include HN-Light;
+    padding: 15px 10px;
+  }
+  input[type='submit'] {
+    width: 100%;
+    border: 2px solid #dadada;
+    background: none;
+    color: $blue;
+    cursor: pointer;
+    @include transition(0.2s);
+    &:hover, &:focus {
+      border: 2px solid $blue;
+    }
+  }
+  h4 {
+    color: #dadada;
+    text-align: center;
+    font-size: 40px;
+    margin: 0;
+    margin-bottom: 30px;
+    span {
+      color: $blue;
+    }
+  }
+}

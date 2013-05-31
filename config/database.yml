@@ -1,0 +1,24 @@
+
+development:
+  adapter: postgresql
+  encoding: unicode
+  database: JurySelection_development
+  pool: 5
+  username: JurySelection
+  password:
+
+test:
+  adapter: postgresql
+  encoding: unicode
+  database: JurySelection_test
+  pool: 5
+  username: JurySelection
+  password:
+
+production:
+  adapter: postgresql
+  encoding: unicode
+  database: JurySelection_production
+  pool: 5
+  username: JurySelection
+  password:
